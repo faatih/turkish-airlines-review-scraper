@@ -78,7 +78,7 @@ Run the script from your terminal within the activated virtual environment.
 
 ```bash
 python trustindex_scraper2.py
-
+```
 
 This will:
 

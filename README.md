@@ -127,7 +127,7 @@ The script generates two files by default (or uses the names specified via argum
 ---
 
 *You might want to add a LICENSE file (e.g., MIT License) if you intend for others to use or contribute to your code.*
-```
+
 
 **Next Steps:**
 
@@ -139,4 +139,3 @@ The script generates two files by default (or uses the names specified via argum
     git push origin main # Push the changes to GitHub
     ```
 
-Now your GitHub repository will have a helpful README explaining your project!

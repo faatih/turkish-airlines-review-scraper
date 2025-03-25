@@ -1,0 +1,24 @@
+# Virtual Environment
+.venv/
+venv/
+env/
+ENV/
+*/activate_this.py
+*.pyc
+__pycache__/
+
+# IDE / Editor specific
+.vscode/
+.idea/
+
+# Output files (optional, but recommended for large/generated files)
+*.csv
+*.xlsx
+
+# OS specific
+.DS_Store
+Thumbs.db
+
+# ChromeDriver (if you downloaded it into the project)
+chromedriver.exe
+chromedriver

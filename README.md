@@ -1,3 +1,4 @@
+
 # Turkish Airlines Review Scraper (Trustindex.io)
 
 This Python script scrapes customer reviews for Turkish Airlines from their profile page on Trustindex.io (`https://www.trustindex.io/reviews/turkish-airline.com`). It uses Selenium to automate a web browser, handling the dynamic loading ("More" button clicks) required to fetch all available reviews up to a specified limit. The scraped data includes the reviewer's name, review date, rating, review body, and the source platform indicated on Trustindex. The extracted reviews are saved into both CSV and Excel (.xlsx) formats.
@@ -81,72 +82,52 @@ python trustindex_scraper2.py
 ```
 
 This will:
+*   Scrape reviews from the default Trustindex URL.
+*   Click the "More" button up to 10 times (default `max_loops`).
+*   Save results to `turkish_airlines_reviews.csv` and `turkish_airlines_reviews.xlsx`.
 
-Scrape reviews from the default Trustindex URL.
+**Command-Line Arguments:**
 
-Click the "More" button up to 10 times (default max_loops).
+*   `-u URL, --url URL`: Specify the Trustindex review page URL.
+    *   Example: `python trustindex_scraper2.py --url "https://another-trustindex-url.com"`
+*   `-l LOOPS, --loops LOOPS`: Set the maximum number of times to click the "More" button.
+    *   Example: `python trustindex_scraper2.py --loops 25`
+*   `-c CSV, --csv CSV`: Specify the output CSV filename.
+    *   Example: `python trustindex_scraper2.py --csv output_reviews.csv`
+*   `-x EXCEL, --excel EXCEL`: Specify the output Excel filename.
+    *   Example: `python trustindex_scraper2.py --excel output_reviews.xlsx`
+*   `-v, --verbose`: Enable detailed DEBUG logging output to the console.
+    *   Example: `python trustindex_scraper2.py --verbose --loops 3`
+*   `--show-browser`: Run Selenium with a visible browser window (useful for debugging).
+    *   Example: `python trustindex_scraper2.py --show-browser --loops 2`
 
-Save results to turkish_airlines_reviews.csv and turkish_airlines_reviews.xlsx.
-
-Command-Line Arguments:
-
--u URL, --url URL: Specify the Trustindex review page URL.
-
-Example: python trustindex_scraper2.py --url "https://another-trustindex-url.com"
-
--l LOOPS, --loops LOOPS: Set the maximum number of times to click the "More" button.
-
-Example: python trustindex_scraper2.py --loops 25
-
--c CSV, --csv CSV: Specify the output CSV filename.
-
-Example: python trustindex_scraper2.py --csv output_reviews.csv
-
--x EXCEL, --excel EXCEL: Specify the output Excel filename.
-
-Example: python trustindex_scraper2.py --excel output_reviews.xlsx
-
--v, --verbose: Enable detailed DEBUG logging output to the console.
-
-Example: python trustindex_scraper2.py --verbose --loops 3
-
---show-browser: Run Selenium with a visible browser window (useful for debugging).
-
-Example: python trustindex_scraper2.py --show-browser --loops 2
-
-Output
+## Output
 
 The script generates two files by default (or uses the names specified via arguments):
 
-turkish_airlines_reviews.csv: A CSV file containing the scraped reviews with columns: author, date, rating, body, source_platform.
+1.  **`turkish_airlines_reviews.csv`**: A CSV file containing the scraped reviews with columns: `author`, `date`, `rating`, `body`, `source_platform`.
+2.  **`turkish_airlines_reviews.xlsx`**: An Excel file with the same data in a sheet named "Reviews".
 
-turkish_airlines_reviews.xlsx: An Excel file with the same data in a sheet named "Reviews".
+## Potential Improvements / TODO
 
-Potential Improvements / TODO
+*   Implement more sophisticated waits after clicking "More" (e.g., waiting for a specific loading element to disappear or the button to become stale).
+*   Add more comprehensive error handling for network issues or unexpected page structure changes.
+*   Integrate proxy rotation for larger-scale scraping to avoid IP blocks.
+*   Refactor into classes for better organization if the script grows more complex.
+*   Add unit tests.
+*   Explore extracting additional data points if available (e.g., reviewer location, helpful votes).
 
-Implement more sophisticated waits after clicking "More" (e.g., waiting for a specific loading element to disappear or the button to become stale).
+## Disclaimer & Ethical Considerations
 
-Add more comprehensive error handling for network issues or unexpected page structure changes.
+*   **Website Terms:** Always review the `robots.txt` file and Terms of Service of Trustindex.io before scraping. Ensure your scraping activities comply with their policies.
+*   **Rate Limiting:** The script includes basic `time.sleep()` delays. Be mindful of the website's resources and avoid overly aggressive scraping, which could lead to IP blocks. Adjust delays as needed.
+*   **Website Changes:** Web scraping scripts are often brittle. Changes to the Trustindex.io website structure or loading mechanism may break this script. Regular maintenance might be required.
+*   **Data Usage:** Use the scraped data responsibly and ethically.
 
-Integrate proxy rotation for larger-scale scraping to avoid IP blocks.
+---
 
-Refactor into classes for better organization if the script grows more complex.
-
-Add unit tests.
-
-Explore extracting additional data points if available (e.g., reviewer location, helpful votes).
-
-Disclaimer & Ethical Considerations
-
-Website Terms: Always review the robots.txt file and Terms of Service of Trustindex.io before scraping. Ensure your scraping activities comply with their policies.
-
-Rate Limiting: The script includes basic time.sleep() delays. Be mindful of the website's resources and avoid overly aggressive scraping, which could lead to IP blocks. Adjust delays as needed.
-
-Website Changes: Web scraping scripts are often brittle. Changes to the Trustindex.io website structure or loading mechanism may break this script. Regular maintenance might be required.
-
-Data Usage: Use the scraped data responsibly and ethically.
-
-You might want to add a LICENSE file (e.g., MIT License) if you intend for others to use or contribute to your code.
+*You might want to add a LICENSE file (e.g., MIT License) if you intend for others to use or contribute to your code.*
+```
 
 **Next Steps:**
 
@@ -157,3 +138,5 @@ You might want to add a LICENSE file (e.g., MIT License) if you intend for other
     git commit -m "Add README.md and requirements.txt"
     git push origin main # Push the changes to GitHub
     ```
+
+Now your GitHub repository will have a helpful README explaining your project!

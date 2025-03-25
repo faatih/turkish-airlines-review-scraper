@@ -125,17 +125,3 @@ The script generates two files by default (or uses the names specified via argum
 *   **Data Usage:** Use the scraped data responsibly and ethically.
 
 ---
-
-*You might want to add a LICENSE file (e.g., MIT License) if you intend for others to use or contribute to your code.*
-
-
-**Next Steps:**
-
-1.  **Create `requirements.txt`:** As mentioned in the README setup, run `pip freeze > requirements.txt` in your activated virtual environment to create the dependencies file.
-2.  **Add and Commit:**
-    ```bash
-    git add README.md requirements.txt # Add the new files
-    git commit -m "Add README.md and requirements.txt"
-    git push origin main # Push the changes to GitHub
-    ```
-
